@@ -1,0 +1,215 @@
+﻿<Window x:Class="废旧口罩收集装置服务器.Equipment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
+        xmlns:local="clr-namespace:废旧口罩收集装置服务器"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Closing="Equipment_Closing"
+        Title="设备信息界面" Height="680" Width="1100" Icon="logo.ico">
+    <Viewbox Stretch="Fill">
+        <Canvas Height="680" Width="1100">
+            <Grid Background="AliceBlue" Height="680" Width="1100" RenderTransformOrigin="0.593,0.967">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="设备信息" FontSize="14" Margin="26,10,869,537"/>
+                <GroupBox
+                    Header="          箱内温度历史曲线" FontSize="18" Margin="250,10,590,435"/>
+                <GroupBox
+                    Header="          箱内湿度历史曲线" FontSize="18" Margin="530,10,310,435"/>
+                <GroupBox
+                    Header="         臭氧浓度历史曲线" FontSize="18" Margin="812,252,28,193"/>
+                <GroupBox
+                    Header="       紫外线强度历史曲线" FontSize="18" Margin="812,10,28,435"/>
+                <GroupBox
+                    Header="        箱内压强历史曲线" FontSize="18" Margin="250,252,590,193"/>
+                <GroupBox
+                    Header="         箱外压强历史曲线" FontSize="18" Margin="530,252,310,193"/>
+                <Grid HorizontalAlignment="Left" Height="96" Margin="27,45,0,0" VerticalAlignment="Top" Width="202" Background="AntiqueWhite">
+                    <TextBlock x:Name="TextBlock_EquipmentNumber" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="10,10,0,0" Text="编号："/>
+                    <TextBlock x:Name="TextBlock_EquipmentNumberContent" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="48" FontSize="16" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="135,10,0,0" RenderTransformOrigin="1.425,1.145"><Run Text="E"/><Run Text="00"/><Run Text="1"/></TextBlock>
+                    <TextBlock x:Name="TextBlock_EquipmentBrimmingr" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="10,37,0,0"><Run Text="是否满溢"/><Run Text=""/><Run Text="："/></TextBlock>
+                    <TextBlock x:Name="TextBlock_EquipmentBrimmingrContent" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="48" FontSize="16" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="135,37,0,0" Text="未满"/>
+                    <TextBlock x:Name="TextBlock_NumberMask" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="10,64,0,0"><Run Text="口罩数"/><Run Text="："/></TextBlock>
+                    <TextBlock x:Name="TextBlock_NumberMask1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="48" FontSize="16" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="135,64,0,0"><Run Text="00"/><Run Text="00"/></TextBlock>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="293" Margin="25,159,0,0" VerticalAlignment="Top" Width="205" Background="AntiqueWhite">
+                    <GroupBox
+                        Header="清理记录" FontSize="20">
+                        <TextBlock x:Name="TextBlock_History" Margin="0,10,0,11" Width="153" Text="" FontSize="14"/>
+                    </GroupBox>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="194" Margin="250,51,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,267,0.4,-0.2" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter1" Margin="0,0,0,31.6" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前温度值：" Margin="5,172,173,6.6" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="cpuUsageText1" Margin="100,172,0,0" FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Height="15" VerticalAlignment="Top"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="194" Margin="530,51,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,267,0.4,-0.2" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter2" Margin="0,0,0,31.6" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前湿度值：" Margin="5,169,182,9.6" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="cpuUsageText2" Margin="100,169,0,9.6"
+                                FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="194" Margin="812,51,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,267,0.4,-0.2" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter3" Margin="0,0,0,32.6" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前紫外线强度：" Margin="5,169,164,6.6" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="cpuUsageText3" Margin="100,169,0,6.6"
+                                FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="195" Margin="250,292,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,267,0.4,-0.2" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter4" Margin="0,0,0,32.6" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前箱内压强：" Margin="5,173,175,5.2" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="cpuUsageText4" Margin="100,173,0,5.2"
+                                FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="191" Margin="530,296,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,267,0.4,-0.2" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter5" Margin="0,-3,0,32.2" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前箱外压强：" Margin="5,169,176,6.2" FontWeight="Bold" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="cpuUsageText5" Margin="100,169,0,6.2"
+                                FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="191" Margin="812,296,0,0" VerticalAlignment="Top" Width="260" Background="AntiqueWhite">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Margin="0,257,0,-90.6" Grid.Row="1"/>
+                    <d3:ChartPlotter x:Name="plotter6" Margin="0,-3,0,32.2" Grid.Row="1">
+                        <d3:ChartPlotter.VerticalAxis>
+                            <d3:VerticalIntegerAxis />
+                        </d3:ChartPlotter.VerticalAxis>
+
+                        <d3:ChartPlotter.HorizontalAxis>
+                            <d3:HorizontalIntegerAxis />
+                        </d3:ChartPlotter.HorizontalAxis>
+                    </d3:ChartPlotter>
+                    <TextBlock Text="当前臭氧浓度：" Margin="5,168,175,0.2" FontWeight="Bold" Grid.Row="1"/>
+                    <TextBlock x:Name="cpuUsageText6" Margin="100,167,0,0.2"
+                                FontSize="15" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+                </Grid>
+                <GroupBox Header="设备当前状态" FontSize="14" Margin="25,473,870,10"/>
+                <Grid HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="203" Background="AntiqueWhite" Margin="26,508,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border x:Name="Light_Waiting"  CornerRadius="15" Background="White" Margin="18,19,172,127.8" />
+                    <TextBlock x:Name="TextBlock_Waiting" HorizontalAlignment="Left" Margin="42,19,0,0" TextWrapping="Wrap" Text="待投放" VerticalAlignment="Top" Height="14"/>
+                    <Border x:Name="Light_Breaking"  CornerRadius="15" Background="White" Margin="18,72,172,74.8" />
+                    <TextBlock x:Name="TextBlock_Breaking" HorizontalAlignment="Left" Margin="42,72,0,0" TextWrapping="Wrap" Text="破坏中" VerticalAlignment="Top" Height="14"/>
+                    <Border x:Name="Light_Sterilize"  CornerRadius="15" Background="White" Margin="18,121,172,25.8" />
+                    <TextBlock x:Name="TextBlock_Sterilize" HorizontalAlignment="Left" Margin="42,121,0,0" TextWrapping="Wrap" Text="消毒中" VerticalAlignment="Top" Height="14"/>
+                    <Border x:Name="Light_Clean"  CornerRadius="15" Background="White" Margin="121,21,69,125.8" />
+                    <TextBlock x:Name="TextBlock_Clean" HorizontalAlignment="Left" Margin="144,21,0,0" TextWrapping="Wrap" Text="清理中" VerticalAlignment="Top" Height="14"/>
+                    <Border x:Name="Light_Breakdown"  CornerRadius="15" Background="White" Margin="121,74,69,72.8" />
+                    <TextBlock x:Name="TextBlock_Breakdown" HorizontalAlignment="Left" Margin="144,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="14" Text="停用中"/>
+                </Grid>
+                <GroupBox Header="清理记录打印" FontSize="14" Margin="250,496,28,11"/>
+                <Grid HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="819" Background="AntiqueWhite" Margin="251,531,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="打印" Margin="338,96,364,48" Click="Button_Print_Click" FontSize="16"/>
+                    <TextBlock x:Name="TextBlock_Crew_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="72" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="24,13,0,0"><Run Text="清理人员"/><Run Text=""/><Run Text="："/></TextBlock>
+                    <ComboBox x:Name="ComboBox_crew" materialDesign:HintAssist.Hint="ALL" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Margin="89,11,626,141">
+                        <ComboBoxItem Content="A001"/>
+                        <ComboBoxItem Content="A002"/>
+                        <ComboBoxItem Content="A003"/>
+                        <ComboBoxItem Content="A004"/>
+                        <ComboBoxItem Content="A005"/>
+                        <ComboBoxItem Content="A006"/>
+                    </ComboBox>
+                    <TextBlock x:Name="TextBlock_EquipmentNumber_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="215,12,0,0"><Run Text="设备编号"/><Run Text="："/></TextBlock>
+                    <ComboBox x:Name="ComboBox_equipment" materialDesign:HintAssist.Hint="ALL" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True" Margin="292,11,424,141">
+                        <ComboBoxItem Content="E001"/>
+                        <ComboBoxItem Content="E002"/>
+                        <ComboBoxItem Content="E003"/>
+                        <ComboBoxItem Content="E004"/>
+                        <ComboBoxItem Content="E005"/>
+                        <ComboBoxItem Content="E006"/>
+                    </ComboBox>
+                    <TextBlock x:Name="TextBlock_FileName_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="419,13,0,0"><Run Text="表格名称"/><Run Text="："/></TextBlock>
+                    <TextBox x:Name="TextBox_FileName" materialDesign:TransitionAssist.DisableTransitions="True" Margin="496,11,248,141" RenderTransformOrigin="0.604,0.479" />
+                    <TextBlock x:Name="TextBlock_SavePath_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="585,12,0,0" Text="保存路径："/>
+                    <TextBox x:Name="TextBox_SavePath" materialDesign:TransitionAssist.DisableTransitions="True" Margin="648,11,75,141"/>
+                    <Button x:Name="Button_Browse_Print" Style="{StaticResource MaterialDesignFlatLightBgButton}" ToolTip="MaterialDesignFlatLightButton" Margin="748,8,10,141" Height="Auto" Click="Button_Browse_Print_Click" Content="浏览"/>
+                    <DatePicker Name="DataPicker_InitialDate" materialDesign:HintAssist.Hint="Locale Date" Margin="89,59,626,93" />
+                    <materialDesign:TimePicker Is24Hours="True" x:Name="PresetTimePicker_InitialTime" Width="100" Margin="193,59,526,93" />
+                    <materialDesign:TimePicker Is24Hours="True" x:Name="PresetTimePicker_DeadilneTime" Width="100" Margin="599,61,120,91" />
+                    <DatePicker Name="DataPicker_Deadilne" materialDesign:HintAssist.Hint="Locale Date" Margin="496,61,220,91" />
+                    <TextBlock x:Name="TextBlock_InitialData_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="72" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="24,61,0,0"><Run Text="初始时间"/><Run Text="："/></TextBlock>
+                    <TextBlock x:Name="TextBlock_Deadline_Print" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="77" FontSize="14" Style="{StaticResource MaterialDesignSubtitle2TextBlock}" Margin="419,61,0,0"><Run Text="截至时间"/><Run Text="："/></TextBlock>
+                </Grid>
+            </Grid>
+        </Canvas>
+    </Viewbox>
+</Window>

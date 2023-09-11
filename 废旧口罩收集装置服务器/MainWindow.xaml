@@ -1,0 +1,151 @@
+﻿<Window x:Class="废旧口罩收集装置服务器.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:AduSkin="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+        xmlns:local="clr-namespace:废旧口罩收集装置服务器"
+        mc:Ignorable="d"
+        Closing="MainWindow_Closing"
+        Title="管理系统主界面" Height="495" Width="800" Icon="logo.ico" Loaded="Window_Loaded">
+    <Viewbox Stretch="Fill">
+        <Canvas Height="495" Width="800">
+            <Grid>
+                <TabControl HorizontalAlignment="Left" Height="495" VerticalAlignment="Top" Width="800" Margin="0,0,-0.4,-0.4">
+                    <TabItem Header="开关界面" Background="AliceBlue">
+                        <Grid Background="AliceBlue" RenderTransformOrigin="0.5,0.5">
+                            <GroupBox
+                                    Header="设备连接状态" FontSize="18" Margin="396,109,54.4,61"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="175,28,0,0" TextWrapping="Wrap" Text="废弃口罩手机装置管理系统" VerticalAlignment="Top" FontSize="36" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                            <GroupBox
+                                Header="服务器当前状态" FontSize="18" Margin="56,109,478.4,220"/>
+                            <Grid Margin="57,150,479.4,221" Background="AntiqueWhite">
+                                <Border x:Name="Light_SystemOpen"  CornerRadius="15" Background="White" Width="24" Height="24" Margin="56,15,178,58" >
+                                    <TextBlock Text="Y" Foreground="White" Margin="7,4,0,0" FontSize="15" Width="12" HorizontalAlignment="Left" VerticalAlignment="Top" Height="17"/>
+                                </Border>
+                                <Border x:Name="Light_SystemDown"  CornerRadius="15" Background="White" Width="24" Height="24" Margin="56,55,178,18" >
+                                    <TextBlock Text="N" Foreground="White" Margin="6,3,0,0" FontSize="15" Width="12" HorizontalAlignment="Left" VerticalAlignment="Top" Height="17"/>
+                                </Border>
+                                <TextBlock x:Name="TextBlock_SystemOpen" HorizontalAlignment="Left" Margin="127,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="84" FontSize="16" Opacity="0.3" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"><Run Text="开启中"/></TextBlock>
+                                <TextBlock x:Name="TextBlock_SystemDown" HorizontalAlignment="Left" Margin="127,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="84" FontSize="16" Opacity="0.3" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"><Run Text="关闭"/><Run Text="中"/></TextBlock>
+
+                            </Grid>
+                            <GroupBox
+                                Header="控制服务器状态" FontSize="18" Margin="55,268,479.4,61"/>
+                            <Grid Margin="56,309,480.4,62" Background="AntiqueWhite">
+                                <AduSkin:AduFlatButton x:Name="AduFlatButton_systemOpen" Content="开启" Height="30" Width="75" Margin="32,35,134,32" Click="AduFlatButton_systemOpen_Click"/>
+                                <AduSkin:AduFlatButton x:Name="AduFlatButton_systemDown" Content="关闭" Height="30" Width="75" Margin="139,35,27,32" Click="AduFlatButton_systemDown_Click"/>
+                            </Grid>
+                            <Grid Background="AntiqueWhite" Margin="397,150,55.4,62">
+                                <Image x:Name="Image_S1" HorizontalAlignment="Left" Height="70" Margin="33,12,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5" MouseDown="Image_OnMouseDown"/>
+                                <Border x:Name="Light_S1zt"  CornerRadius="15" Background="White" Margin="39,95,291,148" />
+                                <TextBlock x:Name="TextBlock_S1zt" HorizontalAlignment="Left" Margin="58,94,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Image x:Name="Image_S2" HorizontalAlignment="Left" Height="70" Margin="141,12,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5"/>
+                                <TextBlock x:Name="TextBlock_S2zt" HorizontalAlignment="Left" Margin="169,95,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Image x:Name="Image_S3" HorizontalAlignment="Left" Height="70" Margin="246,12,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5" RenderTransformOrigin="0.495,-0.045"/>
+                                <TextBlock x:Name="TextBlock_S3zt" HorizontalAlignment="Left" Margin="275,95,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Image x:Name="Image_S4" HorizontalAlignment="Left" Height="70" Margin="33,142,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5"/>
+                                <TextBlock x:Name="TextBlock_S4zt" HorizontalAlignment="Left" Margin="58,220,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Image x:Name="Image_S5" HorizontalAlignment="Left" Height="70" Margin="141,142,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5"/>
+                                <TextBlock x:Name="TextBlock_S5zt" HorizontalAlignment="Left" Margin="165,220,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Image x:Name="Image_S6" HorizontalAlignment="Left" Height="70" Margin="246,142,0,0" VerticalAlignment="Top" Width="70" Stretch="Fill" Source="ljt.jpg" Opacity="0.5"/>
+                                <TextBlock x:Name="TextBlock_S6zt" HorizontalAlignment="Left" Margin="271,220,0,0" TextWrapping="Wrap" Text="未连接" VerticalAlignment="Top" Height="14"/>
+                                <Border x:Name="Light_S2zt"  CornerRadius="15" Background="White" Margin="149,95,181,148" >
+                                    <Border x:Name="Light_S3zt"  CornerRadius="15" Background="White" Margin="105,-1,-105,0.8" />
+                                </Border>
+                                <Border x:Name="Light_S4zt"  CornerRadius="15" Background="White" Margin="39,221,291,22" />
+                                <Border x:Name="Light_S5zt"  CornerRadius="15" Background="White" Margin="149,221,181,22" />
+                                <Border x:Name="Light_S6zt"  CornerRadius="15" Background="White" Margin="255,221,76,22" />
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="人员管理界面" Background="AliceBlue">
+                        <Grid Background="AliceBlue">
+                            <TextBlock HorizontalAlignment="Left" Margin="175,28,0,0" TextWrapping="Wrap" Text="废弃口罩手机装置管理系统" VerticalAlignment="Top" FontSize="36" Style="{StaticResource MaterialDesignSubtitle2TextBlock}"/>
+                            <!--
+                            <TextBox Text="输入清理人员编号查询" Margin="495,86,144.4,355"/>
+                            <Button x:Name="Button_search" Content="搜索" HorizontalAlignment="Left" Margin="668,86,0,0" VerticalAlignment="Top" Width="75" Height="27"/>
+                            -->
+                            <Grid Margin="49,123,638.4,226" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="58" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T1bh" HorizontalAlignment="Left" Margin="36,71,0,25" TextWrapping="Wrap" Width="64"/>
+                                <TextBox x:Name="TextBox_T1Name" HorizontalAlignment="Left" Height="25" Margin="36,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="199,123,488.4,226" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T2bh" HorizontalAlignment="Left" Height="21" Margin="36,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T2Name" HorizontalAlignment="Left" Height="26" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="351,123,336.4,226" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T3bh" HorizontalAlignment="Left" Height="21" Margin="36,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T3Name" HorizontalAlignment="Left" Height="24" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="500,123,187.4,226" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T4bh" HorizontalAlignment="Left" Height="21" Margin="36,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T4Name" HorizontalAlignment="Left" Height="24" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="652,123,35.4,226" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T5bh" HorizontalAlignment="Left" Height="21" Margin="36,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T5Name" HorizontalAlignment="Left" Height="24" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="49,291,638.4,58" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T6bh" HorizontalAlignment="Left" Height="24" Margin="36,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T6Name" HorizontalAlignment="Left" Height="25" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="199,291,488.4,58" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T7bh" HorizontalAlignment="Left" Height="24" Margin="36,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T7Name" HorizontalAlignment="Left" Height="25" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="351,291,336.4,58" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T8bh" HorizontalAlignment="Left" Height="24" Margin="36,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T8Name" HorizontalAlignment="Left" Height="25" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="500,291,187.4,58" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T9bh" HorizontalAlignment="Left" Height="24" Margin="36,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T9Name" HorizontalAlignment="Left" Height="25" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                            <Grid Margin="652,291,35.4,58" Background="AntiqueWhite">
+                                <Image HorizontalAlignment="Left" Height="57" Margin="23,10,0,0" VerticalAlignment="Top" Width="57" Source="Image/rytx.jpg"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,78,0,0" TextWrapping="Wrap" Text="编号：" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="5,99,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TextBox_T10bh" HorizontalAlignment="Left" Height="24" Margin="36,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                                <TextBox x:Name="TextBox_T10Name" HorizontalAlignment="Left" Height="25" Margin="36,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem x:Name="TabItem_3" Header="位置" Background="AliceBlue">
+                        <WebBrowser x:Name="wb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+                    </TabItem>
+
+                </TabControl>
+            </Grid>
+        </Canvas>
+    </Viewbox>
+</Window>
